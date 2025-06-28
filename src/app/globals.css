@@ -1,12 +1,25 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-football-pitch: #008000; /* Verde campo de futebol */
+  --color-football-sky: #0a0a0a; /* Quase preto, para o céu noturno ou sombra */
+  --color-football-line: #ffffff; /* Branco para as linhas do campo */
+  --color-football-accent: #ffd700; /* Dourado para destaques (troféus, detalhes) */
+  --color-text-light: #ffffff; /* Texto claro para fundos escuros */
+  --color-text-dark: #171717; /* Texto escuro para fundos claros */
+
+  --background: var(--color-football-sky);
+  --foreground: var(--color-text-light);
+
+  /* Cores para botões e interações */
+  --button-primary-bg: var(--color-football-accent);
+  --button-primary-text: var(--color-text-dark);
+  --button-secondary-bg: var(--color-football-pitch);
+  --button-secondary-text: var(--color-text-light);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Mantém o céu escuro como background principal */
+    --foreground: #ededed; /* Texto mais claro */
   }
 }
 
@@ -19,7 +32,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif; /* Sugestão de fonte mais comum */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

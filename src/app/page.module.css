@@ -1,19 +1,23 @@
 .page {
-  --gray-rgb: 0, 0, 0;
+  --gray-rgb: 0, 0, 0; /* Será ajustado pelas variáveis globais */
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
+  /* Novas variáveis para os botões do tema de futebol */
+  --button-primary-hover: var(--color-football-accent);
+  --button-secondary-hover: var(--color-football-pitch);
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
+  justify-content: center; /* Centraliza o conteúdo principal verticalmente */
   min-height: 100svh;
   padding: 80px;
-  gap: 64px;
+  gap: 40px; /* Reduzi o gap para um visual mais compacto */
   font-family: var(--font-geist-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  text-align: center;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,42 +34,42 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  gap: 24px; /* Ajustei o gap */
+  width: 100%;
+  max-width: 700px; /* Limitei a largura para melhor leitura */
+  align-items: center;
+  justify-content: center; /* Centraliza horizontalmente */
+  flex-grow: 1; /* Permite que o main ocupe espaço disponível */
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+.title {
+  font-size: 3.5em; /* Tamanho maior para o título principal */
+  color: var(--color-football-accent); /* Cor de destaque */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.description {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: var(--foreground);
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
+/* Removido: .heroSection, .heroTitle, .heroSubtitle, .sectionTitle, .contentGrid, .card, .cardTitle, .cardText */
+/* Removido: .main ol, .main li, .main code (se não forem mais usados) */
 
 .ctas {
   display: flex;
   gap: 16px;
+  margin-top: 20px; /* Ajustei a margem superior */
 }
 
 .ctas a {
   appearance: none;
   border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
+  height: 56px; /* Aumentei a altura do botão */
+  padding: 0 30px; /* Aumentei o padding */
   border: none;
   border: 1px solid transparent;
   transition:
@@ -76,53 +80,69 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 1.2em; /* Tamanho da fonte do botão */
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 600; /* Deixei mais forte */
+  text-transform: uppercase; /* Deixa o texto em maiúsculas */
 }
 
 a.primary {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
   gap: 8px;
 }
 
 a.secondary {
   border-color: var(--gray-alpha-200);
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
   min-width: 158px;
+  display: none; /* Oculta o botão secundário se houver apenas um CTA principal */
 }
 
 .footer {
-  grid-row-start: 3;
   display: flex;
   gap: 24px;
+  margin-top: 40px; /* Ajustei a margem superior */
+  padding-top: 20px;
+  border-top: 1px solid rgba(var(--gray-rgb), 0.1);
+  width: 100%;
+  justify-content: center;
+  font-size: 0.9em; /* Reduzi o tamanho da fonte do rodapé */
 }
 
 .footer a {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--foreground);
+  opacity: 0.8;
 }
 
 .footer img {
   flex-shrink: 0;
+  filter: invert(100%);
+  display: none; /* Oculta os ícones do footer se não forem mais relevantes */
 }
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
-    background: var(--button-primary-hover);
+    background: var(--color-football-accent);
+    filter: brightness(1.1); /* Um leve brilho no hover */
     border-color: transparent;
   }
 
   a.secondary:hover {
-    background: var(--button-secondary-hover);
+    background: var(--color-football-pitch);
+    filter: brightness(1.1);
     border-color: transparent;
   }
 
   .footer a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
+    opacity: 1;
   }
 }
 
@@ -130,14 +150,15 @@ a.secondary {
   .page {
     padding: 32px;
     padding-bottom: 80px;
+    gap: 20px;
   }
 
-  .main {
-    align-items: center;
+  .title {
+    font-size: 2.5em;
   }
 
-  .main ol {
-    text-align: center;
+  .description {
+    font-size: 1em;
   }
 
   .ctas {
@@ -145,9 +166,9 @@ a.secondary {
   }
 
   .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
+    font-size: 1em;
+    height: 48px;
+    padding: 0 20px;
   }
 
   a.secondary {

@@ -1,0 +1,55 @@
+
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 40px;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans);
+  text-align: center;
+}
+
+.errorImage {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.errorMessage {
+  font-size: 1.5em; /* Diminuído para 1.8em */
+  margin-bottom: 10px;
+  color: var(--color-football-line);
+}
+
+.errorDescription {
+  font-size: 1em;
+  max-width: 30rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.backButton {
+  appearance: none;
+  border-radius: 10rem;
+  height: 56px;
+  padding: 0 30px;
+  border: none;
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  font-size: 1.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    filter 0.2s;
+}
+
+.backButton:hover {
+  filter: brightness(1.1);
+}
