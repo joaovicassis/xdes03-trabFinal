@@ -1,30 +1,30 @@
-// src/app/not-found.tsx
 import Link from 'next/link';
-import styles from './error.module.css';
 import Image from 'next/image';
-
-import bolaPraFora from '../../public/gif404.gif';
+import styles from './error.module.css';
 
 export default function NotFound() {
   return (
     <div className={styles.errorPage}>
       <Image
-        src={bolaPraFora}
+        src="/gif404.gif" 
         alt="Bola chutada para fora do campo - Erro 404"
-        width={350} 
-        height={262} 
+        fill 
+        sizes="100vw" 
+        style={{ objectFit: 'cover', zIndex: 1 }}
         priority 
-        className={styles.errorImage}
+        unoptimized 
       />
+      
+      <div className={styles.contentOverlay}>
+        <p className={styles.errorMessage}>404 - Página não encontrada</p>
+        <p className={styles.errorDescription}>
+          Parece que a página que você procurava foi chutada para fora da área. Não conseguimos encontrá-la, mas o jogo continua!
+        </p>
 
-      <p className={styles.errorMessage}>404 - Página não encontrada</p>
-      <p className={styles.errorDescription}>
-        Parece que a página que você procurava foi chutada para fora da área. Não conseguimos encontrá-la, mas o jogo continua!
-      </p>
-
-      <Link href="/" className={styles.backButton}>
-        Voltar para o Campo
-      </Link>
+        <Link href="/" className={styles.backButton}>
+          Voltar para o Campo
+        </Link>
+      </div>
     </div>
   );
 }

@@ -1,189 +1,126 @@
 .page {
-  --gray-rgb: 0, 0, 0; /* Será ajustado pelas variáveis globais */
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  /* Novas variáveis para os botões do tema de futebol */
-  --button-primary-hover: var(--color-football-accent);
-  --button-secondary-hover: var(--color-football-pitch);
-
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Centraliza o conteúdo principal verticalmente */
-  min-height: 100svh;
-  padding: 80px;
-  gap: 40px; /* Reduzi o gap para um visual mais compacto */
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-  color: var(--foreground);
-  text-align: center;
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+  min-height: 100vh;
+  font-family: sans-serif;
+  color: white;
+  background-color: #000; 
 }
 
 .main {
+  flex-grow: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Ajustei o gap */
+  justify-content: space-between;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 700px; /* Limitei a largura para melhor leitura */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center; /* Centraliza horizontalmente */
-  flex-grow: 1; /* Permite que o main ocupe espaço disponível */
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navItem {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover {
+  color: #ff4500;
+}
+
+.loginButton {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.loginButton:hover {
+  background-color: #e03e00;
+}
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  z-index: 1; 
 }
 
 .title {
-  font-size: 3.5em; /* Tamanho maior para o título principal */
-  color: var(--color-football-accent); /* Cor de destaque */
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  position: relative; 
+  z-index: 2; 
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+  padding: 0 1rem;
 }
 
-.description {
-  font-size: 1.2em;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: var(--foreground);
-}
-
-/* Removido: .heroSection, .heroTitle, .heroSubtitle, .sectionTitle, .contentGrid, .card, .cardTitle, .cardText */
-/* Removido: .main ol, .main li, .main code (se não forem mais usados) */
-
-.ctas {
+.carouselIndicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  gap: 16px;
-  margin-top: 20px; /* Ajustei a margem superior */
+  gap: 0.8rem;
+  z-index: 5; 
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 56px; /* Aumentei a altura do botão */
-  padding: 0 30px; /* Aumentei o padding */
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2em; /* Tamanho da fonte do botão */
-  line-height: 20px;
-  font-weight: 600; /* Deixei mais forte */
-  text-transform: uppercase; /* Deixa o texto em maiúsculas */
+  transition: background-color 0.3s ease;
 }
 
-a.primary {
-  background: var(--button-primary-bg);
-  color: var(--button-primary-text);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  background: var(--button-secondary-bg);
-  color: var(--button-secondary-text);
-  min-width: 158px;
-  display: none; /* Oculta o botão secundário se houver apenas um CTA principal */
+.dot:first-child {
+  background-color: white;
 }
 
 .footer {
-  display: flex;
-  gap: 24px;
-  margin-top: 40px; /* Ajustei a margem superior */
-  padding-top: 20px;
-  border-top: 1px solid rgba(var(--gray-rgb), 0.1);
   width: 100%;
-  justify-content: center;
-  font-size: 0.9em; /* Reduzi o tamanho da fonte do rodapé */
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--foreground);
-  opacity: 0.8;
-}
-
-.footer img {
-  flex-shrink: 0;
-  filter: invert(100%);
-  display: none; /* Oculta os ícones do footer se não forem mais relevantes */
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--color-football-accent);
-    filter: brightness(1.1); /* Um leve brilho no hover */
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--color-football-pitch);
-    filter: brightness(1.1);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    opacity: 1;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-    gap: 20px;
-  }
-
-  .title {
-    font-size: 2.5em;
-  }
-
-  .description {
-    font-size: 1em;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 1em;
-    height: 48px;
-    padding: 0 20px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+  padding: 1rem 2rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 10;
 }
