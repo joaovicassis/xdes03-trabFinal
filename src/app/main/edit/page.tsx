@@ -1,0 +1,76 @@
+import ConexaoBD from "@/app/lib/ConexaoBD";
+import Link from "next/link";
+import path from "path";
+import { notFound, redirect } from "next/navigation";
+
+const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
+
+interface EditLeagueProps {
+    params: {
+        id: string;
+    };
+}
+
+export default async function EditLeague(props: EditLeagueProps) {
+    const leagueDB = await ConexaoBD.retornaBD(arquivo);
+    const id = props.params.id;
+    const league = leagueDB.find((l: any) => String(l.id) === id);
+
+    const updateLeague = async (formData: FormData) => {
+        "use server";
+        const updatedLeague = {
+            id,
+            nome: formData.get("nome"),
+            pais: formData.get("pais"),
+            img: formData.get("img")
+        };
+        const index = leagueDB.findIndex((l: any) => String(l.id) === id);
+        leagueDB.splice(index, 1, updatedLeague);
+        await ConexaoBD.armazenaBD(arquivo, leagueDB);
+        redirect('/main/list');
+    };
+
+    if (!league) return notFound();
+
+    return (
+        <div className="create-league-container">
+            <h2>Editar Liga {league.nome}</h2>
+            {league.img && (
+                <img src={league.img} alt="Emblema da Liga" width={100} height={100} style={{margin: "0 auto"}} />
+            )}
+            <form action={updateLeague} className="create-league-form">
+                <section className="league-input">
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Nome da Liga"
+                        defaultValue={league.nome}
+                        required
+                    />
+                </section>
+                <section className="league-input">
+                    <input
+                        type="text"
+                        id="pais"
+                        name="pais"
+                        placeholder="País da Liga"
+                        defaultValue={league.pais}
+                        required
+                    />
+                </section>
+                <section className="league-input">
+                    <input
+                        type="text"
+                        id="img"
+                        name="img"
+                        placeholder="URL do Emblema"
+                        defaultValue={league.img}
+                    />
+                </section>
+                <button>Atualizar Liga</button>
+            </form>
+            <Link href={'/main/list'}>Voltar para lista</Link>
+        </div>
+    );
+}
