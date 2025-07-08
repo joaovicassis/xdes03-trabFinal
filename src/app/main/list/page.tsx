@@ -3,13 +3,13 @@ import LeagueCard, { LeagueProps } from "@/app/ui/league-card";
 import Link from "next/link";
 import path from "path";
 
-const arquivo = path.join(process.cwd(),'src','db','league-db.json');
+const arquivo = 'league-db.json';
 
 export default async function list() {
     const listaLigas = await ConexaoBD.retornaBD(arquivo);
 
     const ligasMap = listaLigas.map((liga: LeagueProps) => {
-        return <LeagueCard {...liga}/>
+        return <LeagueCard key={liga.id} {...liga}/>
     });
 
     return(
