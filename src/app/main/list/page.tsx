@@ -5,7 +5,7 @@ import path from "path";
 
 const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
 
-export default async function list() {
+export default async function ListLeague() {
     const listaLigas = await ConexaoBD.retornaBD(arquivo);
 
     const ligasMap = listaLigas.map((liga: LeagueProps) => {

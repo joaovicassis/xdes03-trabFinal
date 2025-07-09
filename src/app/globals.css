@@ -93,7 +93,8 @@ a {
 }
 
 .create-league-form button,
-.link-add-league {
+.link-add-league,
+.link-busca-API {
   background-color: var(--button-primary-bg);
   color: var(--button-primary-text);
   border: none;
@@ -110,7 +111,8 @@ a {
 }
 
 .create-league-form button:hover,
-.link-add-league:hover {
+.link-add-league:hover,
+.link-busca-API:hover {
   background-color: var(--color-football-accent);
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);

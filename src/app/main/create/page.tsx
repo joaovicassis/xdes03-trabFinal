@@ -72,7 +72,7 @@ export default function CreateLeague() {
                     />
                 </section>
                 <button>Adicionar Liga</button>
-                <Link href={'/main/buscaAPI'}>Adicionar Liga Já Existente</Link>
+                <Link href={'/main/buscaAPI'} className="link-busca-API">Adicionar Liga Já Existente</Link>
             </form>
             <Link href={'/main/list'}>Voltar para lista</Link>
         </div>

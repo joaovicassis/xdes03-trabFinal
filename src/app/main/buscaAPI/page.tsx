@@ -7,7 +7,7 @@ import buscarAPI from "@/app/lib/ConexaoAPI";
 
 const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
 
-export default function CreateLeague() {
+export default function BuscaLeagueAPI() {
     const getAPI = async (formData: FormData) => {
         "use server";
 
@@ -15,7 +15,7 @@ export default function CreateLeague() {
         const novaLiga = await buscarAPI(nome);
 
         if(!novaLiga) {
-            return;
+            return; //Fazer alguma coisa se não achar a liga na api
         }
 
         const leagueDB = await ConexaoBD.retornaBD(arquivo);
