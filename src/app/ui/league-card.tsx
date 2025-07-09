@@ -1,28 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import ConexaoBD from "../lib/ConexaoBD";
-import path from "path";
 import { redirect } from "next/navigation";
+import path from "path";
 
 export interface LeagueProps {
     id: number,
-    name: string,
-    area: string,
-    emblem: string,
+    nome: string,
+    pais: string,
+    img: string,
 }
 
-const arquivo = 'league-db.json';
+const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
 
 export default function LeagueCard(props: LeagueProps) {
 
     const deleteLeague = async (formData: FormData) => {
         'use server';
 
-        const id = formData.get('league-id');
+        const id = Number(formData.get('league-id'));
         const listaLigas = await ConexaoBD.retornaBD(arquivo);
-        const liga = listaLigas.find((d) => d.id === id);
+        const ligaIdx = listaLigas.findIndex((d) => d.id === id);
 
-        listaLigas.splice(liga.id,1);
+        listaLigas.splice(ligaIdx,1);
         await ConexaoBD.armazenaBD(arquivo, listaLigas);
 
         redirect('/main/list');
@@ -30,18 +30,18 @@ export default function LeagueCard(props: LeagueProps) {
 
     return(
         <div className="league-container-card">
-            <h2>{props.name}</h2>
-            <Image src={props.emblem}
+            <h1>{props.nome}</h1>
+            <Image src={props.img}
                    alt="Imagem do emblema da liga"
                    width={200}
                    height={200}
             />
-            <p>{props.area}</p>
+            <p>{props.pais}</p>
             <section className="league-edit-buttons-container">
                 <Link href={`/main/edit/${props.id}`} className="link-edit-league">Editar</Link>
                 <form action={deleteLeague}>
                     <button>Remover</button>
-                    <input value={props.id} name="league-id" hidden/>
+                    <input defaultValue={props.id} name="league-id" hidden/>
                 </form>
             </section>
         </div>
