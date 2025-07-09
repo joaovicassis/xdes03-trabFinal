@@ -5,15 +5,6 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <header className={styles.header}>
-          <nav className={styles.nav}>
-            <ul className={styles.navList}>
-              <li className={styles.navItem}>Home</li>
-            </ul>
-          </nav>
-          <button className={styles.loginButton}>Login</button>
-        </header>
-
         <div className={styles.heroSection}>
           <Image
             src= '/campo.avif' 
@@ -23,13 +14,9 @@ export default function Home() {
             quality={100}
             className={styles.backgroundImage}
           />
-          <h1 className={styles.title}>Sistema de gerenciamento de futebol</h1>
+          <h1 className={styles.title}>Gerenciador de Ligas de Futebol</h1>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <p>© 2025 Projeto CRUD Futebol - João Victor</p>
-      </footer>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 [
   {
-    "id": "2021",
+    "id": 2021,
     "nome": "Premier League 2",
     "pais": "England",
     "img": "https://crests.football-data.org/PL.png"
@@ -10,30 +10,5 @@
     "nome": "premier",
     "pais": "inglat",
     "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAACuCAMAAAClZfCTAAAAFVBMVEX////IEC7FABjrvcHswMTGACLejJTJeP1cAAABiUlEQVR4nO3asQ3DMBAEQVqk1H/JdgcTPgTvVHDY+Naata8PXHt44rQSUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRHSc6Exv3KPOcyvR/ZzZjeuaxUK/RsMTlyf+uxJRiahEVCIqEZWISkQlohJRiahEVCIqEZWISkQlohJRiahEVCIqEZWISkQlohJRiahEVCIqEZWISkRdsKgjH01fLd9wBx3WqZhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiFyT6AlXQRZ39U6PdAAAAAElFTkSuQmCC"
-  },
-  {
-    "id": 2,
-    "nome": "th",
-    "pais": "inglaterra",
-    "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALgAAAB6CAMAAAA7zWlKAAAAflBMVEW+ACcjnkb39AkAAADGJiP9/wL/+QCQwjQAmUj7+AmYAB+OjAXCACgcfjgkoUdoZgRSUQPo5QjT0Ah0cgSqqAZMSwOIhgW1swaTFBuOlwDMyQbf3AexrgXw6wYODgAYFwAoKAGbmgVeXQQuLQE6OgJ+fQXFwwhFRAIkJAFWhChp2VksAAACGklEQVR4nO3Y227aQBSFYXem43bqppxcaDGGYANJ3/8F6wFLwSnN1V5LGmn9VyEX9iey2WNSfPte5Jng7ARnJzg7wdkJzk5wdoKzE5yd4OwEZyc4O8HZCc5OcHaCsxOcneDsBGcnOLtfn/Os+B3yrKiiyzLB2SHhC9iVHRQeVqgrp3DwuPUNcAyB8MrvStC1HRLezv08gK7tgPC43Huf46iEtfd+h5Pj4IcBDtwrKHhsBrd/xu0VGPyY4MC9goIPOyWF2ysg+HWnpHIblVDd3L6+v3xreAc7+GLVzd7qR/jp7nfd2ehWKTt4bFf+49at4V/XcFSiqz9019FyKk1nPDTdf9nzhe1mtP1wRndmjEnKequES/+A3W/M97n5OiwfjMtLY3+A2u/xGI6vE/b+aPqpHEMcQGG6XaqAOOMQ8LiewGeQ5xUAPLY/pyNufYNrCPjl3WezzmRUwvodfGZ9hxRixg/jErzMbj9AvgcB1uHyxj0vghsfuxDfgwDw66nf79IuCdtTejHPAX7bKafxrCyb67hYP6g4BDztlLezMob6eXidwZE/7JTD5v6sjE3vO9t7pOxnfN+56fs7PLwcluazYg2P28r9c8VyY/+/OPt3/NGTScxgxlllDA9llhV/vuRZ8fQ1z4qnH5+yTHB2grMTnJ3g7ARnJzg7wdkJzk5wdoKzE5yd4OwEZyc4O8HZCc5OcHaCs8sW/hfQpYMwgw2wXgAAAABJRU5ErkJggg=="
-  }
-][
-  {
-    "id": "2021",
-    "nome": "Premier League 2",
-    "pais": "England",
-    "img": "https://crests.football-data.org/PL.png"
-  },
-  {
-    "id": 2,
-    "nome": "premier",
-    "pais": "inglat",
-    "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAACuCAMAAAClZfCTAAAAFVBMVEX////IEC7FABjrvcHswMTGACLejJTJeP1cAAABiUlEQVR4nO3asQ3DMBAEQVqk1H/JdgcTPgTvVHDY+Naata8PXHt44rQSUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRFQiKhGViEpEJaISUYmoRHSc6Exv3KPOcyvR/ZzZjeuaxUK/RsMTlyf+uxJRiahEVCIqEZWISkQlohJRiahEVCIqEZWISkQlohJRiahEVCIqEZWISkQlohJRiahEVCIqEZWISkRdsKgjH01fLd9wBx3WqZhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiElGJqERUIioRlYhKRCWiFyT6AlXQRZ39U6PdAAAAAElFTkSuQmCC"
-  },
-  {
-    "id": 2,
-    "nome": "th",
-    "pais": "inglaterra",
-    "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALgAAAB6CAMAAAA7zWlKAAAAflBMVEW+ACcjnkb39AkAAADGJiP9/wL/+QCQwjQAmUj7+AmYAB+OjAXCACgcfjgkoUdoZgRSUQPo5QjT0Ah0cgSqqAZMSwOIhgW1swaTFBuOlwDMyQbf3AexrgXw6wYODgAYFwAoKAGbmgVeXQQuLQE6OgJ+fQXFwwhFRAIkJAFWhChp2VksAAACGklEQVR4nO3Y227aQBSFYXem43bqppxcaDGGYANJ3/8F6wFLwSnN1V5LGmn9VyEX9iey2WNSfPte5Jng7ARnJzg7wdkJzk5wdoKzE5yd4OwEZyc4O8HZCc5OcHaCsxOcneDsBGcnOLtfn/Os+B3yrKiiyzLB2SHhC9iVHRQeVqgrp3DwuPUNcAyB8MrvStC1HRLezv08gK7tgPC43Huf46iEtfd+h5Pj4IcBDtwrKHhsBrd/xu0VGPyY4MC9goIPOyWF2ysg+HWnpHIblVDd3L6+v3xreAc7+GLVzd7qR/jp7nfd2ehWKTt4bFf+49at4V/XcFSiqz9019FyKk1nPDTdf9nzhe1mtP1wRndmjEnKequES/+A3W/M97n5OiwfjMtLY3+A2u/xGI6vE/b+aPqpHEMcQGG6XaqAOOMQ8LiewGeQ5xUAPLY/pyNufYNrCPjl3WezzmRUwvodfGZ9hxRixg/jErzMbj9AvgcB1uHyxj0vghsfuxDfgwDw66nf79IuCdtTejHPAX7bKafxrCyb67hYP6g4BDztlLezMob6eXidwZE/7JTD5v6sjE3vO9t7pOxnfN+56fs7PLwcluazYg2P28r9c8VyY/+/OPt3/NGTScxgxlllDA9llhV/vuRZ8fQ1z4qnH5+yTHB2grMTnJ3g7ARnJzg7wdkJzk5wdoKzE5yd4OwEZyc4O8HZCc5OcHaCs8sW/hfQpYMwgw2wXgAAAABJRU5ErkJggg=="
   }
 ]
