@@ -30,7 +30,7 @@ export default function LeagueCard(props: LeagueProps) {
 
     return(
         <div className="league-container-card">
-            <h2>{props.name}</h2>
+            <h1>{props.name}</h1>
             <Image src={props.emblem}
                    alt="Imagem do emblema da liga"
                    width={200}

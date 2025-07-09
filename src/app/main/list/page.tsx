@@ -15,7 +15,7 @@ export default async function list() {
     return(
         <div className="list-container">
             <Link href={'/main/create'} className="link-add-league">Adicionar</Link>
-            <div className="list-pokemon-container">
+            <div className="list-ligas-container">
                 {ligasMap}
             </div>
         </div>

@@ -2,7 +2,7 @@ import ConexaoBD from "@/app/lib/ConexaoBD";
 import Link from "next/link";
 import path from "path";
 import { redirect } from "next/navigation";
-
+import styles from "../../page.module.css";
 const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
 
 export default function CreateLeague() {
@@ -32,7 +32,7 @@ export default function CreateLeague() {
 
     return (
         <div className="create-league-container">
-            <h2>Inserir Nova Liga</h2>
+            <h1>Inserir Nova Liga</h1>
             <form action={addLeague} className="create-league-form">
                 <section className="league-input">
                     <input
