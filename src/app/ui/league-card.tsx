@@ -18,11 +18,11 @@ export default function LeagueCard(props: LeagueProps) {
     const deleteLeague = async (formData: FormData) => {
         'use server';
 
-        const id = formData.get('league-id');
+        const id = Number(formData.get('league-id'));
         const listaLigas = await ConexaoBD.retornaBD(arquivo);
-        const liga = listaLigas.find((d) => d.id === id);
+        const ligaIdx = listaLigas.findIndex((d) => d.id === id);
 
-        listaLigas.splice(liga.id,1);
+        listaLigas.splice(ligaIdx,1);
         await ConexaoBD.armazenaBD(arquivo, listaLigas);
 
         redirect('/main/list');
@@ -41,7 +41,7 @@ export default function LeagueCard(props: LeagueProps) {
                 <Link href={`/main/edit/${props.id}`} className="link-edit-league">Editar</Link>
                 <form action={deleteLeague}>
                     <button>Remover</button>
-                    <input value={props.id} name="league-id" hidden/>
+                    <input defaultValue={props.id} name="league-id" hidden/>
                 </form>
             </section>
         </div>
