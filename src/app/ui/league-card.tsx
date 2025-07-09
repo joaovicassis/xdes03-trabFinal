@@ -11,7 +11,7 @@ export interface LeagueProps {
     emblem: string,
 }
 
-const arquivo = path.join(process.cwd(),'src','db','league-db.json');
+const arquivo = 'league-db.json';
 
 export default function LeagueCard(props: LeagueProps) {
 
