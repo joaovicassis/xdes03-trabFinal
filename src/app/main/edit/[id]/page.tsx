@@ -1,52 +1,51 @@
 import ConexaoBD from "@/app/lib/ConexaoBD";
 import Link from "next/link";
 import path from "path";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
 
-export default function CreateLeague() {
-    const addLeague = async (formData: FormData) => {
+interface EditLeagueProps {
+    params: Promise<{
+        id: string;
+    }>;
+}
+
+export default async function EditLeague({ params }: EditLeagueProps) {
+    const { id } = await params;
+    const leagueDB = await ConexaoBD.retornaBD(arquivo);
+    const league = leagueDB.find((l: any) => String(l.id) === id);
+
+    const updateLeague = async (formData: FormData) => {
         "use server";
-        const id = Number(formData.get("id"));
-        const nome = formData.get("nome");
-        const pais = formData.get("pais");
-        const img = formData.get("img");
-
-        const novaLiga = {
+        const updatedLeague = {
             id,
-            nome,
-            pais,
-            img
+            nome: formData.get("nome"),
+            pais: formData.get("pais"),
+            img: formData.get("img")
         };
-
-        const leagueDB = await ConexaoBD.retornaBD(arquivo);
-        leagueDB.push(novaLiga);
+        const index = leagueDB.findIndex((l: any) => String(l.id) === id);
+        leagueDB.splice(index, 1, updatedLeague);
         await ConexaoBD.armazenaBD(arquivo, leagueDB);
         redirect('/main/list');
     };
 
+    if (!league) return notFound();
+
     return (
         <div className="create-league-container">
-            <h2>Inserir Nova Liga</h2>
-            <form action={addLeague} className="create-league-form">
-                <section className="league-input">
-                    <input
-                        type="number"
-                        id="id"
-                        name="id"
-                        placeholder="ID da Liga"
-                        aria-label="ID da Liga"
-                        required
-                    />
-                </section>
+            <h2>Editar Liga {league.nome}</h2>
+            {league.img && (
+                <img src={league.img} alt="Emblema da Liga" width={100} height={100} style={{margin: "0 auto"}} />
+            )}
+            <form action={updateLeague} className="create-league-form">
                 <section className="league-input">
                     <input
                         type="text"
                         id="nome"
                         name="nome"
                         placeholder="Nome da Liga"
-                        aria-label="Nome da Liga"
+                        defaultValue={league.nome}
                         required
                     />
                 </section>
@@ -55,8 +54,8 @@ export default function CreateLeague() {
                         type="text"
                         id="pais"
                         name="pais"
-                        placeholder="País"
-                        aria-label="País"
+                        placeholder="País da Liga"
+                        defaultValue={league.pais}
                         required
                     />
                 </section>
@@ -66,11 +65,10 @@ export default function CreateLeague() {
                         id="img"
                         name="img"
                         placeholder="URL do Emblema"
-                        aria-label="URL do Emblema"
-                        required
+                        defaultValue={league.img}
                     />
                 </section>
-                <button>Adicionar Liga</button>
+                <button>Atualizar Liga</button>
             </form>
             <Link href={'/main/list'}>Voltar para lista</Link>
         </div>
