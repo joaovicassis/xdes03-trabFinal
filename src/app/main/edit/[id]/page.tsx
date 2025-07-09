@@ -6,14 +6,14 @@ import { notFound, redirect } from "next/navigation";
 const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
 
 interface EditLeagueProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
-export default async function EditLeague(props: EditLeagueProps) {
+export default async function EditLeague({ params }: EditLeagueProps) {
+    const { id } = await params;
     const leagueDB = await ConexaoBD.retornaBD(arquivo);
-    const id = props.params.id;
     const league = leagueDB.find((l: any) => String(l.id) === id);
 
     const updateLeague = async (formData: FormData) => {

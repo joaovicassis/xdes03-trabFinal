@@ -8,20 +8,16 @@ const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
 export default function CreateLeague() {
     const addLeague = async (formData: FormData) => {
         "use server";
-        const code = formData.get("code");
-        const res = await fetch(`https://api.football-data.org/v4/competitions/${code}`, {
-            headers: {
-                'X-Auth-Token': process.env.FOOTBALL_API_KEY || ''
-            }
-        });
-        if (!res.ok) throw new Error('Erro ao buscar competição na API');
-        const data = await res.json();
+        const id = Number(formData.get("id"));
+        const nome = formData.get("nome");
+        const pais = formData.get("pais");
+        const img = formData.get("img");
 
         const novaLiga = {
-            id: data.id,
-            nome: data.name,
-            pais: data.area?.name || '',
-            img: data.emblem || ''
+            id,
+            nome,
+            pais,
+            img
         };
 
         const leagueDB = await ConexaoBD.retornaBD(arquivo);
@@ -36,11 +32,41 @@ export default function CreateLeague() {
             <form action={addLeague} className="create-league-form">
                 <section className="league-input">
                     <input
+                        type="number"
+                        id="id"
+                        name="id"
+                        placeholder="ID da Liga"
+                        aria-label="ID da Liga"
+                        required
+                    />
+                </section>
+                <section className="league-input">
+                    <input
                         type="text"
-                        id="code"
-                        name="code"
-                        placeholder="Código da Liga (ex: PL, BL1)"
-                        aria-label="Código da Liga"
+                        id="nome"
+                        name="nome"
+                        placeholder="Nome da Liga"
+                        aria-label="Nome da Liga"
+                        required
+                    />
+                </section>
+                <section className="league-input">
+                    <input
+                        type="text"
+                        id="pais"
+                        name="pais"
+                        placeholder="País"
+                        aria-label="País"
+                        required
+                    />
+                </section>
+                <section className="league-input">
+                    <input
+                        type="text"
+                        id="img"
+                        name="img"
+                        placeholder="URL do Emblema"
+                        aria-label="URL do Emblema"
                         required
                     />
                 </section>
