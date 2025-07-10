@@ -66,10 +66,7 @@ export default function LoginPage(){
             
             <form className={styles['login-form']} action={loginAction}>
                 <div className={styles['logo-container']}>
-                    <div className={styles['soccer-ball']}>
-                        <div className={styles['ball-pattern']}></div>
-                    </div>
-                    <h1 className={styles['login-title']}>⚽ Futebol Manager</h1>
+                    <h1 className={styles['login-title']}>⚽ Futebol League Manager</h1>
                     <p className={styles['login-subtitle']}>Entre para gerenciar sua liga!</p>
                 </div>
                 

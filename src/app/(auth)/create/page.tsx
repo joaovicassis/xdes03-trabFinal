@@ -70,10 +70,7 @@ export default function CreatePage(){
             
             <form className={styles['login-form']} action={createUserAction}>
                 <div className={styles['logo-container']}>
-                    <div className={styles['soccer-ball']}>
-                        <div className={styles['ball-pattern']}></div>
-                    </div>
-                    <h1 className={styles['login-title']}>⚽ Futebol Manager</h1>
+                    <h1 className={styles['login-title']}>⚽ Futebol League Manager</h1>
                     <p className={styles['login-subtitle']}>Crie sua conta para começar!</p>
                 </div>
                 
