@@ -5,6 +5,7 @@ import ConexaoBD from "./ConexaoBD";
 
 import bcrypt from "bcrypt";
 import { LoginCredentials } from "../(auth)/login/page";
+import { createSessionToken } from "./session";
 
 
 const userDBFile = 'src/db/usuarios-db.json';
@@ -51,6 +52,7 @@ export async function validateCredentials(data: LoginCredentials){
 
     if(isMatch)
     {
+        await createSessionToken(user.id, user.email);
         redirect('/main/list');
     }
     else{
