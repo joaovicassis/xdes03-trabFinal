@@ -134,9 +134,17 @@ Uma página personalizada para erros 404, com uma temática de futebol.
 
 3.  **Crie um arquivo `.env.local` na raiz do projeto:**
     ```
+    TOKEN=SEU_TOKEN
     FOOTBALL_API_KEY=SUA_CHAVE_DA_API_AQUI
     ```
     Você pode obter uma chave da API em [football-data.org](https://www.football-data.org/).
+    O TOKEN pode ser gerado utilizando o proprio Node seguindo os comandos abaixo:
+
+    ```bash
+    node
+    require('crypto').randomBytes(64).toString('hex')
+    .exit
+    ```
 
 4.  **Execute o servidor de desenvolvimento:**
     ```bash
