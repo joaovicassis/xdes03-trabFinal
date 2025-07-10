@@ -2,6 +2,7 @@ import ConexaoBD from "@/app/lib/ConexaoBD";
 import Link from "next/link";
 import path from "path";
 import { notFound, redirect } from "next/navigation";
+import { LeagueProps } from "@/app/ui/league-card";
 
 const arquivo = path.join(process.cwd(), 'src', 'db', 'league-db.json');
 
@@ -18,11 +19,11 @@ export default async function EditLeague({ params }: EditLeagueProps) {
 
     const updateLeague = async (formData: FormData) => {
         "use server";
-        const updatedLeague = {
-            id,
-            nome: formData.get("nome"),
-            pais: formData.get("pais"),
-            img: formData.get("img")
+        const updatedLeague: LeagueProps = {
+            id: Number(id),
+            nome: String(formData.get("nome")),
+            pais: String(formData.get("pais")),
+            img: String(formData.get("img"))
         };
         const index = leagueDB.findIndex((l: any) => String(l.id) === id);
         leagueDB.splice(index, 1, updatedLeague);
