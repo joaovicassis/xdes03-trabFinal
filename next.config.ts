@@ -3,7 +3,12 @@ import type { NextConfig } from "next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['crests.football-data.org'], // <-- aqui!
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'crests.football-data.org',
+      },
+    ],
   },
 };
 

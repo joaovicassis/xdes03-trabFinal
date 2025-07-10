@@ -11,7 +11,7 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      <button className={styles.loginButton}>Login</button>
+      <Link className={styles.loginButton} href="/login">Login</Link>      
     </header>
   );
 }

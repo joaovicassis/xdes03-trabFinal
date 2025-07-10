@@ -9,8 +9,8 @@ export default function Home() {
           <Image
             src= '/campo.avif' 
             alt="Estádio de futebol iluminado"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             quality={100}
             className={styles.backgroundImage}
           />
